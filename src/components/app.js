@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from '../containers/search-bar'
-import MortalityList from './mortality-list'
+import MortalityList from '../containers/mortality-list'
 
 const DEFAULT_COUNTRY="France"
 
