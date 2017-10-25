@@ -9,10 +9,11 @@ const yTitle = "% mortalité"
 
 const MortalityListItem = () => {
     return (
-        <div>
-            <Flag country={"France"} className="flag_medium"/>
-            <ColumnChart data={[[12,45],[45,85]]} xtitle={xTitle} ytitle={yTitle}/>
-        </div>
+        <tr>
+            <td><Flag country={"France"} className="flag_medium"/></td>
+            <td className="col-md-6"><ColumnChart data={[[12,45],[45,85]]} xtitle={xTitle} ytitle={yTitle}/></td>
+            <td className="col-md-6"><ColumnChart data={[[12,45],[45,85]]} xtitle={xTitle} ytitle={yTitle}/></td>
+        </tr>
     )
 }
 
