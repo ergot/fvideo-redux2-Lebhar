@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {getCountries} from "../actions/index";
+import {getCountries, getMortality} from "../actions/index";
 
 class SearchBar extends React.Component {
 
@@ -16,7 +16,9 @@ class SearchBar extends React.Component {
     }
 
     search(e) {
-        this.setState({selectedCountry:target.value})
+        this.setState({selectedCountry:e.target.value}, ()=>{
+            this.props.getMortality(this.state.selectedCountry)
+        })
     }
 
     renderSelectBox (){
@@ -51,7 +53,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) =>{
-    return bindActionCreators({getCountries}, dispatch)
+    return bindActionCreators({getCountries, getMortality}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
