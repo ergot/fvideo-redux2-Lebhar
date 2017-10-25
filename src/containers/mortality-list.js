@@ -8,10 +8,15 @@ import {connect} from 'react-redux'
 
 class MortalityList extends React.Component{
 
+    componentWillMount(){
+        this.props.getMortality(this.props.defaultCountry)
+    }
+
+
     renderMortalities () {
         const {mortalities} = this.props
         return mortalities.map((data)=> {
-            return <MortalityListItem key={data.country}/>
+            return <MortalityListItem key={data.country} mortality={data}/>
         })
     }
 
@@ -44,8 +49,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) =>{
-//     return bindActionCreators({getCountries, getMortality}, dispatch)
-// }
+const mapDispatchToProps = (dispatch) =>{
+    return bindActionCreators({getMortality}, dispatch)
+}
 
-export default connect(mapStateToProps)(MortalityList)
+export default connect(mapStateToProps, mapDispatchToProps)(MortalityList)
